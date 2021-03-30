@@ -21,7 +21,7 @@ try:
 except ValueError:
     'Please enter your text! We can not generate your WordCloud with no words'
 else:
-    ma = np.array(Image.open(path.join("C:\\Users\\lenovo\\Desktop\\WORDCLOUD-MASK\\cloud.png")))
+    ma = np.array(Image.open(path.join("ppWhite.png")))
     word = WordCloud(width=wid, height=hei, margin=0, background_color=color, mask=ma, contour_width=0.5).generate(txt)
     word.to_file('wordcld.png')
     image = Image.open('wordcld.png')
