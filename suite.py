@@ -8,10 +8,33 @@ import numpy as np
 #user inputs
 st.title("Welcome to our wordCloud")
 'please input the needed info in the sidebar and we will do the rest !'
-c = pd.DataFrame({'c':['white', 'pink', 'black', 'blue', 'green', 'purple']})
-color = st.sidebar.selectbox("please choose a background color", c)
+
+bc = st.sidebar.color_picker("Pick a color for the background of your wordcloud",value='#FFFFFF')
+text_color = st.sidebar.radio("Do you want for the words in your cloud to have a specific color ?", ["yes", "No"])
+if text_color == "yes":
+    c = st.sidebar.color_picker("Pick a color for your text")
+    val = True
+else:
+    val = False
+
+
+
+# color palette for contour
+
 wid = st.sidebar.slider("choose the width in px", 0, 400, 1000)
 hei = st.sidebar.slider("choose the height in px", 0, 400, 1000)
+#mask or no mask
+l = pd.DataFrame({'l': ['Simple', 'Shaped']})
+logo = st.sidebar.selectbox("How do you want your wordcloud?", l)
+if logo == 'Shaped':
+    contour = st.sidebar.radio("Do you want your word cloud to have a contour?", ["Yes", "No"])
+    if contour == "Yes":
+        cd = 0.5
+        cd_c = st.sidebar.color_picker("Pick a color for your contour")
+    else:
+        cd = 0
+        cd_c = None
+
 t=pd.DataFrame({'s':['enter a text','upload a file']})
 #text input
 Place_holder=st.sidebar.selectbox("how do you want to submit the text ?",t)
@@ -35,7 +58,16 @@ except ValueError:
     ''
 else:
     ma = np.array(Image.open(path.join("ppWhite.png")))
-    word = WordCloud(width=wid, height=hei, margin=0, background_color=color, mask=ma, contour_width=0.5).generate(txt)
+    if val == True and logo== 'Shaped':
+        word = WordCloud(width=wid, height=hei, margin=0, background_color=bc, mask=ma, contour_width=0.5,
+                         color_func=lambda *args, **kwargs: c,contour_color=cd_c).generate(txt)
+    elif val == False and logo == 'Shaped' :
+        word = WordCloud(width=wid, height=hei, margin=0, background_color=bc, mask=ma, contour_width=cd,contour_color=cd_c).generate(txt)
+    elif val == False and logo == 'Simple' :
+        word = WordCloud(width=wid, height=hei, margin=0, background_color=bc).generate(txt)
+    else:
+        word =WordCloud(width=wid, height=hei, margin=0, background_color=bc,color_func=lambda *args, **kwargs: c).generate(txt)
     word.to_file('wordcld.png')
+    st.subheader("\nHere is your wordcloud :")
     image = Image.open('wordcld.png')
     st.image(image, caption='wordcloud')
