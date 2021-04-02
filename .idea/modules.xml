@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/pythonProject1Souissi.iml" filepath="$PROJECT_DIR$/.idea/pythonProject1Souissi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../pythonProjectheroku/.idea/pythonProjectheroku.iml" filepath="$PROJECT_DIR$/../pythonProjectheroku/.idea/pythonProjectheroku.iml" />
     </modules>
   </component>
 </project>
