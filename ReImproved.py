@@ -78,10 +78,15 @@ else:
     st.subheader("\nHere is your wordcloud :")
     image = Image.open('wordcld.png')
     st.image(image, caption='wordcloud')
-st.markdown("____")
+    st.markdown("____")
 
 # empty slot to use later for the wordcloud
 empty_place = st.empty()
 
-information = st.beta_expander("Who are we?", False)
-information.text("We are INPT first year students...")
+information = st.beta_expander("About", False)
+information.text("We are INPT first year students:\n"
+                 "Chadli Wiam\n"
+                 "Zoufir Zineb\n"
+                 "Hammani Latifa\n"
+                 "Allam Laila\n"
+                 "Laaqira Chaima\n")
