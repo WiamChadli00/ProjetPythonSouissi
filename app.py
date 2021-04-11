@@ -70,7 +70,7 @@ else:
 
 # color palette for contour
 st.sidebar.markdown("----")
-st.sidebar.markdown("<h2 style='font-style: italic; font-size: medium'>Choose the height in px</h2>",
+st.sidebar.markdown("<h2 style='font-style: italic; font-size: medium'>Choose the width in px</h2>",
                     unsafe_allow_html=True)
 wid = st.sidebar.slider("Width", 0, 400, 1000)
 st.sidebar.markdown("<h2 style='font-style: italic; font-size: medium'>Choose the height in px</h2>",
