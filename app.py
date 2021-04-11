@@ -108,11 +108,11 @@ t = pd.DataFrame({'s': ['enter a text', 'upload a file']})
 
 # text input
 st.sidebar.markdown(
-    "<h2 style='font-style: italic; font-size: medium'>how do you want to submit the text ?"
+    "<h2 style='font-style: italic; font-size: medium'>How do you want to submit the text ?"
     "</h2>", unsafe_allow_html=True)
 Place_holder = st.sidebar.selectbox(" ", t)
 if Place_holder == 'enter a text':
-    txt = st.sidebar.text_area("enter your text here")
+    txt = st.sidebar.text_area("Enter your text here")
 else:
     #  fichier = st.sidebar.file_uploader('test',type='txt',accept_multiple_files=False)
     uploaded_file = st.sidebar.file_uploader("Choose a file")
@@ -174,7 +174,6 @@ information_html = """
         padding: 10px;
     }
    </style>
-
     <div>This WordCloud Web Application is the work of five dedicated students 
     at the National Institue of Posts and Telecommunications under the supervision of Professor Omar Souissi: 
         <ul class="fa-ul">
@@ -248,4 +247,3 @@ Ratings_html="""
     </div>
 """
 st.markdown(Ratings_html, unsafe_allow_html=True)
-
