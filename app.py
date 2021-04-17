@@ -72,10 +72,10 @@ else:
 st.sidebar.markdown("----")
 st.sidebar.markdown("<h2 style='font-style: italic; font-size: medium'>Choose the width in px</h2>",
                     unsafe_allow_html=True)
-wid = st.sidebar.slider("Width", 0, 400, 1000)
+wid = st.sidebar.slider("Width", 0, 1000)
 st.sidebar.markdown("<h2 style='font-style: italic; font-size: medium'>Choose the height in px</h2>",
                     unsafe_allow_html=True)
-hei = st.sidebar.slider("Height", 0, 400, 1000)
+hei = st.sidebar.slider("Height", 0, 1000)
 
 # Choosing between mask or no mask :
 l = pd.DataFrame({'l': ['Simple', 'Shaped']})
